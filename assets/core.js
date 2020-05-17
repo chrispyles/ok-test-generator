@@ -14,7 +14,7 @@ var testTemplate = _.template(`test = {
 				{
 					"code": r"""<% if (testCase.code.length != 1 || testCase.code[0] != "") { 
 						_(testCase.code).each((line, i) => { %>
-					<%= i != 0 && (line.startsWith("\t") || line.startsWith("  ")) ? "..." : ">>>" %> <%= line %><% }); }
+					<%= promptIsEllipsis(testCase.code, i) ? "..." : ">>>" %> <%= line %><% }); }
 					if (testCase.output.length != 1 || testCase.output[0] != "") { _(testCase.output).each((line, i) => { %>
 					<%= line %><% }); } %>
 					""",
@@ -51,6 +51,16 @@ var outputTemplate = _.template(`<div id="results">
 </script>
 
 </div>`);
+
+// Function to determine if Python interpreter line should start with >>> or ...
+function promptIsEllipsis(lines, index) {
+	var line =  lines[index];
+	if (index === 0) {
+		return false;
+	}
+	return line.startsWith("\t") || line.startsWith(" ") || line.startsWith("else:") || line.startsWith("elif") ||
+		line.startsWith("except ") || line.startsWith("finally:") || lines[index - 1].trim().endsWith("\\");
+}
 
 // Function to capture the TAB key in all textareas
 function captureTabKey() {
