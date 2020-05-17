@@ -7,7 +7,6 @@ var test = {};
 var testTemplate = _.template(`test = {
 	"name": "<%= name %>",
 	"points": <%= points ? points : 0 %>,
-	"hidden": <%= hidden ? "True" : "False" %>,
 	"suites": [ <% cases = suites[0].cases %>
 		{
 			"cases": [ <% _(cases).each((testCase) => { %>
