@@ -1,3 +1,7 @@
-.ng-invalid {
+.invalid-testName {
     border-color: red;
+}
+
+.invalid-popup {
+    color: red;
 }

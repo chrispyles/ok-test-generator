@@ -22,7 +22,7 @@ export class OkTestFormComponent implements OnInit {
             scored: [true],
             testCases: this.fb.array([
                 this.fb.group(this.okTestFormService.getTestCaseDefaults())
-            ])
+            ], [Validators.required])
         });
     }
 
@@ -32,6 +32,10 @@ export class OkTestFormComponent implements OnInit {
 
     get scored() {
         return this.okTestForm.get('scored');
+    }
+
+    get testName() {
+        return this.okTestForm.get('testName');
     }
 
     addTestCase() {

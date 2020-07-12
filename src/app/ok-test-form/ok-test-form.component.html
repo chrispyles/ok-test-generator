@@ -2,7 +2,15 @@
 
     <div class="form-group row">
 
-        <input type="text" name="testname" placeholder="Test Name" formControlName="testName" class="form-control col-md-3" required>
+        <input 
+            type="text" 
+            name="testname" 
+            placeholder="Test Name" 
+            formControlName="testName" 
+            class="form-control col-md-3" 
+            [class.invalid-testName]="testName.invalid && testName.touched" 
+            required
+        >
         <input type="text" name="points" placeholder="Points" formControlName="points" class="form-control col-md-3 offset-md-1">
         <div class="col-md-3 offset-md-1 form-control cases-checkbox">
             <input type="checkbox" name="scored" formControlName="scored" class="form-check-input" id="scored" [checked]="scored">
@@ -15,6 +23,10 @@
 
     </div>
 
+    <div *ngIf="testName.invalid && testName.touched" class="alert alert-warning invalid-popup" role="alert">
+        This field is required.
+    </div>
+    
     <!-- <div class="form-group row">
         
         <textarea name="setup" placeholder="Setup Code" class="form-control col-md-3 offset-md-2" id="setup"></textarea>
@@ -63,6 +75,10 @@
 
         </div>
 
+    </div>
+
+    <div *ngIf="testCases.invalid" class="alert alert-warning invalid-popup" role="alert">
+        Your test needs at least one test case.
     </div>
 
 </form>
