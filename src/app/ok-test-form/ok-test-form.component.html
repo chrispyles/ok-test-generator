@@ -1,0 +1,71 @@
+<form id="test-generator" [formGroup]="okTestForm">
+
+    <div class="form-group row">
+
+        <input type="text" name="testname" placeholder="Test Name" formControlName="testName" class="form-control col-md-3" required>
+        <input type="text" name="points" placeholder="Points" formControlName="points" class="form-control col-md-3 offset-md-1">
+        <div class="col-md-2 offset-md-1 form-control cases-checkbox">
+            <input type="checkbox" name="scored" class="form-check-input" id="scored">
+            <label class="form-check-label" for="scored">Scored</label>
+        </div>
+        <div class="col-md-2 form-control cases-checkbox">
+            <input type="checkbox" name="visible" class="form-check-input" id="visible">
+            <label class="form-check-label" for="visible">Visible</label>
+        </div>
+
+    </div>
+
+    <!-- <div class="form-group row">
+        
+        <textarea name="setup" placeholder="Setup Code" class="form-control col-md-3 offset-md-2" id="setup"></textarea>
+        <textarea name="setup" placeholder="Teardown Code" class="form-control col-md-3 offset-md-2" id="teardown"></textarea>
+
+    </div> -->
+
+    <h4>Cases</h4>
+
+    <div fromArrayName="testCases">
+
+        <div class="row" *ngFor="let testCase of testCases.controls; let i=index" id="all-cases-container">
+
+            <div [formGroupName]="i" class="form-group col-md-6 case" id="inputSet{{ i }}">
+
+                <!-- test case input -->
+                <textarea name="caseCode{{ i }}" placeholder="Code" formControlName="input" class="form-control code-input code"></textarea>
+
+                <!-- test case output -->
+                <textarea name="caseOutput{{ i }}" placeholder="Output" formControlName="output" class="form-control code-input output"></textarea>
+
+                <div class="row">
+                    <div class="col-md-6 cases-checkbox">
+                        <input type="checkbox" name="hidden{{ i }}" class="form-check-input hidden" id="hidden{{ i }}">
+                        <label class="form-check-label" for="hidden{{ i }}">Hidden</label>
+                    </div>
+                    <div class="col-md-6 cases-checkbox">
+                        <input type="checkbox" name="locked{{ i }}" class="form-check-input locked" id="locked{{ i }}">
+                        <label class="form-check-label" for="locked{{ i }}">Locked</label>
+                    </div>
+                </div>
+
+                <br>
+
+                <!-- <div class="row"> -->
+                    <button type="button" class="btn btn-light offset-md-1 col-md-10" (click)="deleteTestCase(i)">Delete Test</button>
+                <!-- </div> -->
+
+            </div>
+
+        </div>
+
+    </div>
+
+</form>
+
+<div class="form-group row">
+    <div class=" col-md-3 offset-md-3">
+        <button type="button" class="btn btn-light mx-auto" (click)="addTestCase()" id="add-case">Add a Test</button>
+    </div>
+    <div class="col-md-3">
+        <button onclick="generateTest()" class="btn btn-light mx-auto">Generate</button>
+    </div>
+</div>
