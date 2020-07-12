@@ -43,7 +43,7 @@ export class OkTestFormComponent implements OnInit {
     }
 
     get testNameEmpty() {
-        return this.testName.value.trim() === "";
+        return this.testName.value.trim() === '';
     }
 
     get testNameInvalid() {
