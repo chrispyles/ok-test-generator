@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'oktg-root',
@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ok-test-generator';
+  testObject;
+
+  isFormSent = false;
+
+  onGenerateFile(event) {
+    this.isFormSent = true;
+    this.testObject = event;
+  }
 }

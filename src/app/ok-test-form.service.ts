@@ -18,4 +18,13 @@ export class OkTestFormService {
     return JSON.parse(JSON.stringify(this.testCaseDefaults));
   }
 
+  // Function to capture the TAB key in all textareas
+  // captureTabKey() {
+  //   var textareas = document.getElementsByTagName('textarea');
+  //   var count = textareas.length;
+  //   for (var i = 0; i < count; i++) {
+  //       textareas[i].onkeydown = 
+  //   }
+  // }
+
 }
