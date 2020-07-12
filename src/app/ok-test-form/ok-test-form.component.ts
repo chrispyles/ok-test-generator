@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
+import { FormGroup, FormBuilder, FormArray, Validators } from '@angular/forms';
 
 import { OkTestFormService } from '../ok-test-form.service';
 
@@ -17,9 +17,9 @@ export class OkTestFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.okTestForm = this.fb.group({
-      testName: [''],
+      testName: ['', [Validators.required, Validators.pattern("[\\w_]+")]],
       points: [''],
-      score: [true],
+      scored: [true],
       testCases: this.fb.array([
         this.fb.group(this.okTestFormService.getTestCaseDefaults())
       ])
@@ -61,8 +61,8 @@ export class OkTestFormComponent implements OnInit {
     for (let i = 0; i < testObject.testCases.length; i++) {
       let testCase = testObject.testCases[i];
       console.log(testCase.input);
-      testCase.input = testCase.input.split("\n");
-      testCase.output = testCase.output.split("\n");
+      testCase.input = testCase.input.replace("\t", "    ").split("\n");
+      testCase.output = testCase.output.replace("\t", "    ").split("\n");
       console.log(testCase.input);
     }
 
