@@ -1,0 +1,23 @@
+/* Header */
+
+img#ok-logo {
+	height: 4.5rem;
+	display: inline-block;
+}
+
+header table#header {
+	width: 100%;
+}
+
+table#header div svg {
+	vertical-align: text-top;
+}
+
+header td#view-on-gh {
+	text-align: right;
+}
+
+svg {
+	fill: white;
+	margin-bottom: 4px;
+}

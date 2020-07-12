@@ -1,0 +1,21 @@
+/* Return Box */
+
+button.return-button {
+	margin-top: 20px;
+}
+
+textarea.generated-file {
+	display: block;
+	height: 400px;
+	background: #eee;
+	color: #444;
+	overflow: scroll;
+	font-family: 'Courier New', monospace;
+	font-size: 15px;
+	width: 100%;
+}
+
+div#results {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}

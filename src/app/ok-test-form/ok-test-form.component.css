@@ -1,3 +1,45 @@
+/* Cases Form */
+
+input.form-control {
+	margin-top: 10px;
+	display: inline-block;
+}
+
+div.form-group.row button, button.return-button {
+	width: 100%;
+}
+
+input.code-input, textarea.code-input, 
+input[name="testname"], input[name="points"] {
+	font-family: 'Courier New', monospace;
+	font-size: 15px;
+}
+
+div.cases-checkbox {
+	text-align: center;
+	padding-top: 6px;
+}
+
+div.form-group.row div.form-control {
+	margin-top: 10px;
+	border: none;
+}
+
+div.form-group.row div.form-control input, 
+div.form-group.row div.form-control label {
+	padding-bottom: 2px;
+}
+
+/* Set height of code and output textareas */
+div.form-group textarea {
+	height: 100px;
+}
+
+/* Add spacing between code and output textareas */
+div.form-group textarea:last-of-type {
+	margin-top: 10px;
+}
+
 .invalid-testName {
     border-color: red;
 }

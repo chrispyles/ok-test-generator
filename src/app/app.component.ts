@@ -1,4 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
+// import * as $ from 'jquery';
 
 @Component({
     selector: 'oktg-root',
@@ -10,6 +11,12 @@ export class AppComponent {
     testObject;
 
     isFormSent = false;
+
+    // ngAfterViewInit() {
+    //     $(function () {
+    //         ($('[data-toggle="popover"]') as any).popover();
+    //     })
+    // }
 
     onGenerateFile(event) {
         this.isFormSent = true;

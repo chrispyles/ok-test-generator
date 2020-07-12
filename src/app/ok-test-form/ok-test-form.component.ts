@@ -86,6 +86,4 @@ export class OkTestFormComponent implements OnInit {
         this.generateFile.emit(testObject);
     }
 
-    // TODO: make validator for testName give helpful output
-
 }

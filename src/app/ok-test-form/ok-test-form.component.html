@@ -88,10 +88,30 @@
 </form>
 
 <div class="form-group row">
+
     <div class=" col-md-3 offset-md-3">
         <button type="button" class="btn btn-light mx-auto" (click)="addTestCase()" id="add-case">Add a Test</button>
     </div>
-    <div class="col-md-3">
-        <button (click)="generateTestFile()" class="btn btn-light mx-auto" [disabled]="generateDisabled">Generate</button>
+
+    <div class="col-md-3" 
+        [ngbPopover]="generateDisabled ? 'To generate your test, you must have a valid test name and at least one test case.' : null"
+        [triggers]="generateDisabled ? 'mouseenter:mouseleave' : null"
+    >
+        <button 
+            type="button"
+            (click)="generateTestFile()" 
+            [disabled]="generateDisabled"
+            class="btn btn-light mx-auto" 
+        >Generate</button>
+        <!-- <button 
+            type="button"
+            (click)="generateTestFile()" 
+            class="btn btn-light mx-auto" 
+            [disabled]="generateDisabled"
+            ngbPopover="To generate your test, you must have a valid test name and at least one test case."
+            triggers="mouseenter:mouseleave"
+            popoverTitle="something"
+        >Generate</button> -->
     </div>
+
 </div>
