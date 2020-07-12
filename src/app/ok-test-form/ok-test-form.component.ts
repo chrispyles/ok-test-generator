@@ -17,7 +17,7 @@ export class OkTestFormComponent implements OnInit {
 
     ngOnInit(): void {
         this.okTestForm = this.fb.group({
-            testName: ['', [Validators.required, Validators.pattern('[\\w_]+')]],
+            testName: ['', [Validators.required, Validators.pattern('[A-Za-z_][\\w_]*')]],
             points: [''],
             scored: [true],
             testCases: this.fb.array([
@@ -40,6 +40,14 @@ export class OkTestFormComponent implements OnInit {
 
     get generateDisabled() {
         return this.testCases.invalid || this.testName.invalid;
+    }
+
+    get testNameEmpty() {
+        return this.testName.value.trim() === "";
+    }
+
+    get testNameInvalid() {
+        return !this.testNameEmpty && this.testName.invalid;
     }
 
     addTestCase() {
@@ -77,5 +85,7 @@ export class OkTestFormComponent implements OnInit {
         console.log('Generating test:\n', testObject);
         this.generateFile.emit(testObject);
     }
+
+    // TODO: make validator for testName give helpful output
 
 }

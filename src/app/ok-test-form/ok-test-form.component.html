@@ -23,8 +23,12 @@
 
     </div>
 
-    <div *ngIf="testName.invalid && testName.touched" class="alert alert-warning invalid-popup" role="alert">
+    <div *ngIf="testNameEmpty && testName.touched" class="alert alert-warning invalid-popup" role="alert">
         This field is required.
+    </div>
+
+    <div *ngIf="testNameInvalid && testName.touched" class="alert alert-warning invalid-popup" role="alert">
+        The provided test name is not valid. Test names should be valid Python identifiers, e.g. <code>q1_1</code>.
     </div>
     
     <!-- <div class="form-group row">
