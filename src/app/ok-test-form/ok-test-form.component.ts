@@ -38,6 +38,10 @@ export class OkTestFormComponent implements OnInit {
         return this.okTestForm.get('testName');
     }
 
+    get generateDisabled() {
+        return this.testCases.invalid || this.testName.invalid;
+    }
+
     addTestCase() {
         this.testCases.push(this.fb.group(this.okTestFormService.getTestCaseDefaults()));
     }

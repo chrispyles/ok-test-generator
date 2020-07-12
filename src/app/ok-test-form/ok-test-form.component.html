@@ -88,6 +88,6 @@
         <button type="button" class="btn btn-light mx-auto" (click)="addTestCase()" id="add-case">Add a Test</button>
     </div>
     <div class="col-md-3">
-        <button (click)="generateTestFile()" class="btn btn-light mx-auto">Generate</button>
+        <button (click)="generateTestFile()" class="btn btn-light mx-auto" [disabled]="generateDisabled">Generate</button>
     </div>
 </div>
