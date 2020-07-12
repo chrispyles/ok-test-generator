@@ -2,11 +2,11 @@
 
 <!-- [![Build Status](https://travis-ci.org/chrispyles/okpy-test-generator.svg?branch=master)](https://travis-ci.org/chrispyles/okpy-test-generator) [![codecov](https://codecov.io/gh/chrispyles/ok-test-generator/branch/master/graph/badge.svg)](https://codecov.io/gh/chrispyles/ok-test-generator) -->
 
-This is the source code for small JS-based webpage that generates Python test cases in ok format. This test format is used in various autograders, including [otter-grader](https://github.com/ucbds-infra/otter-grader), [okpy](https://github.com/okpy/ok), and [gofer-grader](https://github.com/data-8/gofer-grader).
+This is a small Angular application that generates Python test cases in OK-format. This test format is used in various autograders, including [Otter-Grader](https://github.com/ucbds-infra/otter-grader), [OkPy](https://github.com/okpy/ok), and [Gofer-Grader](https://github.com/data-8/gofer-grader).
 
-The generator is at [https://oktests.chrispyles.io](https://oktests.chrispyles.io).
+The generator can be found at [https://oktests.chrispyles.io](https://oktests.chrispyles.io).
 
-## Changelog
+<!-- ## Changelog
 
 **v0.4.0:**
 
@@ -38,3 +38,4 @@ The generator is at [https://oktests.chrispyles.io](https://oktests.chrispyles.i
 **v0.0.1:**
 
 * Initial release!
+-->
