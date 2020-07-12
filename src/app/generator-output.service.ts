@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import * as _ from 'underscore';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class GeneratorOutputService {
 
-  okTestTemplate = okTestTemplate;
+    okTestTemplate = okTestTemplate;
 
-  constructor() { }
+    constructor() { }
 
 }
 
@@ -19,7 +19,7 @@ const okTestTemplate = _.template(`test = {
         {
             "cases": [ <% _(testCases).each((testCase) => { %>
                 {
-                    "code": r"""<% if (testCase.input.length != 1 || testCase.input[0] != "") { 
+                    "code": r"""<% if (testCase.input.length != 1 || testCase.input[0] != "") {
                       _(testCase.input).each((line, i) => { %>
                     <%= promptIsEllipsis(testCase.input, i) ? "..." : ">>>" %> <%= line %><% }); }
                     if (testCase.output.length != 1 || testCase.output[0] != "") { _(testCase.output).each((line, i) => { %>
@@ -39,10 +39,10 @@ const okTestTemplate = _.template(`test = {
 
 // Function to determine if Python interpreter line should start with >>> or ...
 export function promptIsEllipsis(lines, index) {
-  var line = lines[index];
-  if (index === 0) {
-    return false;
-  }
-  return line.startsWith("\t") || line.startsWith(" ") || line.startsWith("else:") || line.startsWith("elif") ||
-    line.startsWith("except ") || line.startsWith("finally:") || lines[index - 1].trim().endsWith("\\");
+    const line = lines[index];
+    if (index === 0) {
+        return false;
+    }
+    return line.startsWith('\t') || line.startsWith(' ') || line.startsWith('else:') || line.startsWith('elif') ||
+        line.startsWith('except ') || line.startsWith('finally:') || lines[index - 1].trim().endsWith('\\');
 }
